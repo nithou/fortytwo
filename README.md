@@ -22,7 +22,7 @@ Header
 ------
 
 The header sets all the defaults for things such as :
-+ **Favicon **
++ **Favicon**
 + **Apple Icon** (iPhone, iPad)
 + **Apple Startup Image** for webapps (iPhone, iPhone Retina, iPad (portrait & paysage), iPad Retina)
 + Enable **webapp mode**
