@@ -1,0 +1,28 @@
+/***********************
+NITHOU'S FRAMEWORK HUMANS
+***********************/
+
+/* 42 is a framework developed by Pillows Factory to give full functionnalities to every website developed, it was developed in Brussels, BE, based on the Foundation Framework by Zurb */
+
+/* TECHNOLOGIES */
+	Standards : HTML5, CSS3
+	Components: Foundation (jQuery, Orbit, Reveal)
+	Software: Coda
+
+/* HUMANS */
+	Code: Nithou - Simon Vandereecken
+	Twitter: @nithou
+
+
+/***********************
+FRAMEWORK HUMANS
+***********************/
+
+/* Foundation was made by ZURB, an interaction design and design strategy firm in Campbell, CA */
+/* zurb.com */
+/* humanstxt.org */
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: jQuery, Orbit, Reveal
+  Software: Coda, Textmate, Git

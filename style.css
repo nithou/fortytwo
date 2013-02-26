@@ -1,0 +1,53 @@
+/*
+
+Theme Name: Forty Two Framework
+Theme URI: http://www.nithou.net
+Description: Nithou's Framework for websites
+Author: Nithou
+Author URI: http://www.nithou.net
+Version: 1.1
+Tags: white, black, blue
+
+License: GPL (Version 3, 29 June 2007)
+License URI: http://www.gnu.org/licenses/gpl.html
+
+*/
+
+.sticky {
+	
+}
+
+.bypostauthor {
+	 
+}
+
+.post-column {
+	
+}
+
+a img {border:none;}
+
+a:hover, a:active {outline:none;}
+
+/* Classical display targeting */
+
+@media only screen and (min-width: 768px) { 
+	
+}
+
+/* Small display targeting */
+
+@media only screen and (max-width: 767px) { 
+	
+}
+
+/* Orientation targeting */
+
+@media screen and (orientation: landscape) { 
+	
+}
+
+@media screen and (orientation: portrait) { 
+	
+}
+
