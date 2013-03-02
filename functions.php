@@ -105,6 +105,20 @@ function wp_foundation_js(){
 add_action('wp_enqueue_scripts', 'wp_foundation_js');
 
 
+/* Call jquery in the footer */
+
+function my_init() {
+	if (!is_admin()) {
+		wp_deregister_script('jquery');
+
+		// load the local copy of jQuery in the footer
+		wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.8.3', true);
+
+		wp_enqueue_script('jquery');
+	}
+}
+add_action('init', 'my_init');
+
 ################################################################################
 // Order required plugins
 ################################################################################
