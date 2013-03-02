@@ -26,7 +26,7 @@ The header sets all the defaults for things such as :
 + **Apple Icon** (iPhone, iPad)
 + **Apple Startup Image** for webapps (iPhone, iPhone Retina, iPad (portrait & paysage), iPad Retina)
 + Enable **webapp mode**
-+ **Foundation Framework CSS + Wordpress Rebuild CSS** (avoid problems)
++ **Foundation Framework 4 + Wordpress Rebuild CSS** (avoid problems)
 + Load a **specific css** for <IE9
 + **html5.js** from google for <IE9
 + **Respond** scripts (enabling responsive design on old browsers
@@ -45,7 +45,7 @@ The theme supports those things through its **functions.php** file :
 + Improve **comment formatting**
 + Google's **rich snippets**
 + **Enqueue JS from Google CDN**
-+ Load **several scripts** from Nithou CDN (http://assets.nithou.net) : Jquery Reveal / Orbit / Customforms / Placeholder / Tooltips, App.js, off-canvas.js
++ Load **several scripts** from Nithou CDN (http://assets.nithou.net) : Jquery Reveal / Customforms / Placeholder / Tooltips, App.js, off-canvas.js
 + **TGM Activation plugins** : displays a warning to install some plugins (Gravity Forms, WPML, Nithou Plugin, Piwik, Infinite WP Client, Maintenance Mode, Breadcrumb NavXT, Social Bartender)
 
 Included

@@ -13,8 +13,6 @@
 		 <div class="entry" itemprop="articleBody">
 		   <?php the_content(); ?>
 		 </div>
-		
-		<?php get_template_part('add','sharing'); ?>
 		      
 	 <!-- Display a comma separated list of the Post's Categories. -->
 	 </article> <!-- closes the first div box -->
