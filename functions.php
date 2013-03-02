@@ -86,13 +86,7 @@ if( $test_url !== false ) { // test if the URL exists
     add_action('wp_enqueue_scripts', 'load_local_jQuery'); // initiate the function  
 }  
 
-/* load modernizr from foundation */
-function modernize_it(){
-    wp_register_script( 'modernizr', 'http://assets.nithou.net/scripts/modernizr.foundation.js' ); 
-    wp_enqueue_script( 'modernizr' );
-}
-
-add_action( 'wp_enqueue_scripts', 'modernize_it' );
+/* LOad Foundation Scripts */
 
 function foundation_js(){
     wp_register_script( 'foundation-reveal', 'http://assets.nithou.net/scripts/fnd4/foundation/foundation.alerts.js' ); 
@@ -123,8 +117,6 @@ function foundation_js(){
     wp_enqueue_script( 'foundation-reveal', 'jQuery', '1.1', true );
     wp_register_script( 'foundation-app', 'http://assets.nithou.net/scripts/app.js' ); 
     wp_enqueue_script( 'foundation-app', 'jQuery', '1.0', true );
-    wp_register_script( 'foundation-off-canvas', 'http://assets.nithou.net/scripts/off-canvas.js' ); 
-    wp_enqueue_script( 'foundation-off-canvas', 'jQuery', '1.0', true );
 }
 
 add_action('wp_enqueue_scripts', 'foundation_js');
