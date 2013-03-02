@@ -3,10 +3,10 @@
 	<article>
 
 		<!-- Display the Title as a link to the Post's permalink. -->
-		 <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Link to'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+		 <h2 itemprop="headline"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Link to'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 		
 		 <!-- Display the Post's Content in a div box. -->
-		 <div class="entry">
+		 <div class="entry" itemprop="articleBody">
 		   <?php the_excerpt(); ?>
 		 </div>
 		
