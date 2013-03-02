@@ -43,6 +43,7 @@ The theme supports those things through its **functions.php** file :
 + Inject **opengraph doctype**
 + Ensure **maximum image size** regarding to content width
 + Improve **comment formatting**
++ Google's **rich snippets**
 + **Enqueue JS from Google CDN**
 + Load **several scripts** from Nithou CDN (http://assets.nithou.net) : Jquery Reveal / Orbit / Customforms / Placeholder / Tooltips, App.js, off-canvas.js
 + **TGM Activation plugins** : displays a warning to install some plugins (Gravity Forms, WPML, Nithou Plugin, Piwik, Infinite WP Client, Maintenance Mode, Breadcrumb NavXT, Social Bartender)
