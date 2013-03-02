@@ -51,8 +51,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-  <!-- Included CSS Files -->
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/stylesheets/foundation.css">
+  <!-- Included Foundation CSS Files -->
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/stylesheets/foundation.min.css">
   
   <!-- WORDPRESS DEFAULTS REBUILD -->
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/stylesheets/wp.css">
@@ -68,9 +68,7 @@
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  
-  <!-- CALL THE RESPOND SCRIPT FROM NITHOU CDN -->
-  <script src="http://assets.nithou.net/scripts/respond.min.js"></script>
+ 
   
   <!-- OPENGRAPH META -->
 	

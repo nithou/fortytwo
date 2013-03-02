@@ -4,23 +4,16 @@
     <div class="twelve columns">
       <h2><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a></h2>
       <nav id="main-nav" role="navigation"><?php wp_nav_menu( array( 'container_class' => 'header-menu', 'theme_location' => 'primary' ) ); ?></nav>
-      
-      <!-- ACTIVATE SOCIAL MEDIAS ICONS FROM WEBSITE OWNER -->
-      <?php get_template_part('add','social'); ?>
-      
-      <?php get_search_form(); ?>
-      
-      <hr />
+
     </div>
   </div>
 
   <div class="row">
-    <div class="eight columns">
-      <h3>The Loop</h3>
+    <div class="small-1 large-8 columns">
 
       <!-- The Default Loop -->
       <div class="row">
-        <div class="twelve columns">
+        <div class="small-1 large-12 columns">
 
 			 <?php get_template_part('loop','excerpt'); ?>
 			 
@@ -29,8 +22,7 @@
     </div>
 
      
-    <div class="four columns">
-	    <h3>The Sidebar</h3>
+    <div class="small-1 large-12 columns">
 	    <?php get_sidebar(); ?>
 	</div>
 

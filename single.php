@@ -9,11 +9,11 @@
   </div>
 
   <div class="row">
-    <div class="eight columns">
+    <div class="small-1 large-8 columns">
 
       <!-- The Default Loop -->
       <div class="row">
-        <div class="twelve columns">
+        <div class="small-1 large-12 columns">
 
 			 <?php get_template_part('loop','single'); ?>
 			 
@@ -22,7 +22,7 @@
     </div>
 
      
-    <div class="four columns">
+    <div class="small-1 large-12 columns">
 	    <?php get_sidebar(); ?>
 	</div>
 
