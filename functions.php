@@ -153,50 +153,11 @@ function my_theme_register_required_plugins() {
 	$plugins = array(
 
 		// This is an example of how to include a plugin pre-packaged with a theme
-		array(
-			'name'     				=> 'Gravity Forms', // The plugin name
-			'slug'     				=> 'gravityforms', // The plugin slug (typically the folder name)
-			'source'   				=> 'http://assets.nithou.net/plugins/gravityforms.zip', // The plugin source
-			'required' 				=> false, // If false, the plugin is only 'recommended' instead of required
-			'force_activation' 		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
-			'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
-			'external_url' 			=> 'http://www.gravityforms.com/', // If set, overrides default API URL and points to an external URL
-		),
-		
-		array(
-			'name'     				=> 'Gravity Forms multilingual', // The plugin name
-			'slug'     				=> 'gravityforms-multilingual', // The plugin slug (typically the folder name)
-			'source'   				=> 'http://assets.nithou.net/plugins/gravity_multilingual.zip', // The plugin source
-			'required' 				=> false, // If false, the plugin is only 'recommended' instead of required
-			'force_activation' 		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
-			'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
-			'external_url' 			=> 'http://www.wpml.org', // If set, overrides default API URL and points to an external URL
-		),
-		
-		array(
-			'name'     				=> 'WPML Multilingual CMS', // The plugin name
-			'slug'     				=> 'sitepress-multilingual-cms', // The plugin slug (typically the folder name)
-			'source'   				=> 'http://assets.nithou.net/plugins/sitepresscms_multilingual.zip', // The plugin source
-			'required' 				=> false, // If false, the plugin is only 'recommended' instead of required
-			'force_activation' 		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
-			'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
-			'external_url' 			=> 'http://www.wpml.org', // If set, overrides default API URL and points to an external URL
-		),
-		
-		array(
-			'name'     				=> 'WPML String Translation', // The plugin name
-			'slug'     				=> 'wpml-string-translation', // The plugin slug (typically the folder name)
-			'source'   				=> 'http://assets.nithou.net/plugins/stringtranslations_multilingual.zip', // The plugin source
-			'required' 				=> false, // If false, the plugin is only 'recommended' instead of required
-			'force_activation' 		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
-			'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
-			'external_url' 			=> 'http://www.wpml.org', // If set, overrides default API URL and points to an external URL
-		),
-		
+				
 		array(
 			'name'     				=> 'Nithou Plugin', // The plugin name
 			'slug'     				=> 'nithou-plugin', // The plugin slug (typically the folder name)
-			'source'   				=> 'http://assets.nithou.net/nithou-plugin.zip', // The plugin source
+			'source'   				=> 'https://github.com/nithou/Nithou-Plugin/archive/master.zip', // The plugin source
 			'required' 				=> true, // If false, the plugin is only 'recommended' instead of required
 			'force_activation' 		=> true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
 			'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
@@ -215,7 +176,7 @@ function my_theme_register_required_plugins() {
 		array(
 			'name' 		=> 'InfiniteWP Client',
 			'slug' 		=> 'iwp-client',
-			'required' 	=> true,
+			'required' 	=> false,
 			'force_activation' => true,
 		),
 		
@@ -234,12 +195,6 @@ function my_theme_register_required_plugins() {
 			'force_activation' => true,
 		),
 		
-		array(
-			'name' 		=> 'Social Bartender',
-			'slug' 		=> 'social-bartender',
-			'required' 	=> false,
-			'force_activation' => true,
-		),
 
 	);
 

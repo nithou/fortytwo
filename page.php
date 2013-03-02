@@ -4,11 +4,7 @@
     <div class="twelve columns">
       <h2><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a></h2>
       <nav id="main-nav" role="navigation"><?php wp_nav_menu( array( 'container_class' => 'header-menu', 'theme_location' => 'primary' ) ); ?></nav>
-      
-      <!-- ACTIVATE SOCIAL MEDIAS ICONS FROM WEBSITE OWNER -->
-      <?php get_template_part('add','social'); ?>
-      
-      <hr />
+
     </div>
   </div>
 
