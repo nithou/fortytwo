@@ -1,7 +1,7 @@
 Fortytwo-Theme
 ==============
 
-Parent theme for Wordpress based on Foundation Framework, lots of improvements glanced here and there on the internet and added to this theme for better bases.
+Parent theme for Wordpress based on [Foundation Framework](http://foundation.zurb.com/docs/), lots of improvements glanced here and there on the internet and added to this theme for better bases.
 
 Theme Loops
 -----------
@@ -44,9 +44,9 @@ The theme supports those things through its **functions.php** file :
 + Ensure **maximum image size** regarding to content width
 + Improve **comment formatting**
 + Google's **rich snippets**
-+ **Enqueue JS from Google CDN**
 + Load **several scripts** from Nithou CDN (http://assets.nithou.net) : Jquery Reveal / Customforms / Placeholder / Tooltips, App.js, off-canvas.js
 + **TGM Activation plugins** : displays a warning to install some plugins (Gravity Forms, WPML, Nithou Plugin, Piwik, Infinite WP Client, Maintenance Mode, Breadcrumb NavXT, Social Bartender)
+
 
 Included
 --------
