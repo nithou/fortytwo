@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="twelve columns">
-      <h2><a href="<?php bloginfo('url'); ?>/">Welcome to Nithou's 42 Framework</a></h2>
+      <h2><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a></h2>
       <nav id="main-nav" role="navigation"><?php wp_nav_menu( array( 'container_class' => 'header-menu', 'theme_location' => 'primary' ) ); ?></nav>
       
       <!-- ACTIVATE SOCIAL MEDIAS ICONS FROM WEBSITE OWNER -->
