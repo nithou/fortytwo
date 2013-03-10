@@ -46,7 +46,10 @@ The theme supports those things through its **functions.php** file :
 + Google's **rich snippets**
 + Load **several scripts** from Nithou CDN (http://assets.nithou.net) : Jquery Reveal / Customforms / Placeholder / Tooltips, App.js, off-canvas.js
 + **TGM Activation plugins** : displays a warning to install some plugins (Gravity Forms, WPML, Nithou Plugin, Piwik, Infinite WP Client, Maintenance Mode, Breadcrumb NavXT, Social Bartender)
-
++ Clean the **dashboard** from useless boxes
++ Add **support box** on the dashboard
++ **Deactivate jpeg compression**
++ Fix quote marks issues
 
 Included
 --------
@@ -62,3 +65,25 @@ Template Pages
 + search.php
 + index.php
 + category.php
+
+Security & Speed
+--------------
++ No **login error** displayed
++ Remove **auto ping**
++ Set **revisions** to 10 versions.
++ Remove **useless links** from header
++ Remove **version number**
+
+Branded
+--------
++ Change e-mail address **from the website**
++ Add a **box in admin bar** linking to Nithou's website.
+
+Improvements
+------------
++ **Shortcodes** : e-mail protection, members only text
++ Allow **HTML in users profiles**
++ Updated users **contact fields**
++ **Autoclean editor** by closing open tags
++ Dynamic **copyright** (called by dynamic_copyright)
++ Fix **notifications**

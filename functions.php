@@ -31,6 +31,311 @@ add_filter('language_attributes', 'add_opengraph_doctype');
 
 if ( ! isset( $content_width ) ) $content_width = 980;
 
+/************************
+Deactivate image compression
+************************/
+
+add_filter('jpeg_quality', function($arg){return 100;});
+
+/************************
+Nithou Login Function
+************************/
+
+function custom_login_style() {
+    echo '<link rel="stylesheet" type="text/css" href="http://nithou.net/assets/login.css" />';
+}
+add_action('login_head', 'custom_login_style');
+
+/************************
+Set post revisions to 10 versions
+************************/
+
+if (!defined('WP_POST_REVISIONS')) define('WP_POST_REVISIONS', 10);
+
+/***************************************
+Clean Dashboard & add Nithou Support
+***************************************/
+
+function example_remove_dashboard_widgets() {
+	// Globalize the metaboxes array, this holds all the widgets for wp-admin
+ 	global $wp_meta_boxes;
+
+	// Remove the incomming links widget
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);	
+	
+	// Remove Dashboard Plugins
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);	
+
+	// Remove right now
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
+}
+
+// Hoook into the 'wp_dashboard_setup' action to register our function
+add_action('wp_dashboard_setup', 'example_remove_dashboard_widgets' );
+
+// Add custom message in the Dashboard
+
+add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
+
+function my_custom_dashboard_widgets() {
+global $wp_meta_boxes;
+
+wp_add_dashboard_widget('custom_help_widget', 'Nithou Support', 'custom_dashboard_help');
+}
+
+function custom_dashboard_help() {
+echo '<p>Welcome to your website! If you need any help, I\'ll be glad to help you at <a href="simon@pnithou.net">simon@nithou.net</a></p>';
+}
+
+/***************************************
+Nithou Admin Footer
+***************************************/
+
+function custom_admin_footer() {
+        echo 'Crafted & developed by <a href="http://www.nithou.net">Nithou</a>';
+} 
+add_filter('admin_footer_text', 'custom_admin_footer');
+
+/******************************
+Allow Shortcodes in Widgets
+******************************/
+
+if ( !is_admin() ){
+    add_filter('widget_text', 'do_shortcode', 11);
+}
+
+/******************************
+Better Quotes Marks
+******************************/
+
+remove_filter('the_content', 'wptexturize');
+remove_filter('comment_text', 'wptexturize');
+
+/******************************
+Allow html in user profile
+******************************/
+
+remove_filter('pre_user_description', 'wp_filter_kses');
+
+/******************************
+Update Author Informations
+******************************/
+
+add_filter('user_contactmethods','hide_profile_fields',10,1);
+
+function hide_profile_fields( $contactmethods ) {
+	unset($contactmethods['aim']);
+	unset($contactmethods['jabber']);
+	unset($contactmethods['yim']);
+	return $contactmethods;
+}
+
+function my_new_contactmethods( $contactmethods ) {
+
+// 	Add Twitter
+$contactmethods['twitter'] = 'Twitter';
+
+//	Add Facebook
+$contactmethods['facebook'] = 'Facebook';
+
+return $contactmethods;
+}
+add_filter('user_contactmethods','my_new_contactmethods',10,1);
+
+
+/******************************
+Remove for security)
+******************************/
+
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'index_rel_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'start_post_rel_link', 10, 0);
+remove_action('wp_head', 'parent_post_rel_link', 10, 0);
+remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
+
+function wpbeginner_remove_version() {
+	return '';
+}
+add_filter('the_generator', 'wpbeginner_remove_version');
+
+/******************************
+Change Email From Website
+******************************/
+
+add_filter('wp_mail_from', 'new_mail_from');
+add_filter('wp_mail_from_name', 'new_mail_from_name');
+
+function new_mail_from($old) {
+ return 'simon@nithou.net';
+}
+function new_mail_from_name($old) {
+ return 'Mail from your website';
+}
+
+/******************************
+Autoclean editor by closing tags
+******************************/
+
+function clean_bad_content($bPrint = false) {
+ global $post;
+ $szPostContent  = $post->post_content;
+ $szRemoveFilter = array("~<p[^>]*>\s?</p>~", "~<a[^>]*>\s?</a>~", "~<font[^>]*>~", "~<\/font>~", "~style\=\"[^\"]*\"~", "~<span[^>]*>\s?</span>~");
+ $szPostContent  = preg_replace($szRemoveFilter, '', $szPostContent);
+ $szPostContent  = apply_filters('the_content', $szPostContent);
+ if ($bPrint == false) return $szPostContent; 
+ else echo $szPostContent;
+   }
+
+/******************************
+Email protection shortcode [mailto]
+******************************/
+
+function cwc_mail_shortcode( $atts , $content=null ) {
+    for ($i = 0; $i < strlen($content); $i++) $encodedmail .= "&#" . ord($content[$i]) . ';'; 
+    return '<a href="mailto:'.$encodedmail.'">'.$encodedmail.'</a>';
+}
+add_shortcode('mailto', 'cwc_mail_shortcode');
+
+/******************************
+Text only if member [member]
+******************************/
+
+function cwc_member_check_shortcode( $atts, $content = null ) {
+	 if ( is_user_logged_in() && !is_null( $content ) && !is_feed() )
+		return $content;
+	return '';
+}
+
+add_shortcode( 'member', 'cwc_member_check_shortcode' );
+
+/******************************
+MetaBox for shortcodes instructions
+******************************/
+add_action( 'add_meta_boxes', 'plw_meta_box_add' );  
+function plw_meta_box_add()  
+{
+add_meta_box( 'plw_meta_box', 'Nithou Shortcodes', 'display_html', 'post', 'side', 'high' );
+}
+
+function display_html()
+{
+	echo '<p>Use <b>[mailto]</b>adress@domain.com<b>[/mailto]</b> to protect your email from spam.</p>';
+	echo '<p>Use <b>[member]</b>Your text<b>[/member]</b> to make a text visible only by members.</p>';
+}
+
+/******************************
+Dynamic Copyright
+******************************/
+
+function dynamic_copyright() {
+	global $wpdb;
+	$copyright_dates = $wpdb->get_results("
+	SELECT
+		YEAR(min(post_date_gmt)) AS firstdate,
+		YEAR(max(post_date_gmt)) AS lastdate
+	FROM
+		$wpdb->posts
+	WHERE
+		post_status = 'publish'
+		");
+		$output = '';
+		if($copyright_dates) {
+			$copyright = "&copy; " . $copyright_dates[0]->firstdate;
+			if($copyright_dates[0]->firstdate != $copyright_dates[0]->lastdate) {
+				$copyright .= '-' . $copyright_dates[0]->lastdate;
+		}
+		$output = $copyright;
+		}
+return $output;
+}
+
+/**************
+Notifications fix
+***************/
+
+function update_active_plugins($value = '') {
+    /*
+    The $value array passed in contains the list of plugins with time
+    marks when the last time the groups was checked for version match
+    The $value->reponse node contains an array of the items that are
+    out of date. This response node is use by the 'Plugins' menu
+    for example to indicate there are updates. Also on the actual
+    plugins listing to provide the yellow box below a given plugin
+    to indicate action is needed by the user.
+    */
+    if ((isset($value->response)) && (count($value->response))) {
+
+        // Get the list cut current active plugins
+        $active_plugins = get_option('active_plugins');    
+        if ($active_plugins) {
+
+            //  Here we start to compare the $value->response
+            //  items checking each against the active plugins list.
+            foreach($value->response as $plugin_idx => $plugin_item) {
+
+                // If the response item is not an active plugin then remove it.
+                // This will prevent WordPress from indicating the plugin needs update actions.
+                if (!in_array($plugin_idx, $active_plugins))
+                    unset($value->response[$plugin_idx]);
+            }
+        }
+        else {
+             // If no active plugins then ignore the inactive out of date ones.
+            foreach($value->response as $plugin_idx => $plugin_item) {
+                unset($value->response);
+            }          
+        }
+    }  
+    return $value;
+}
+add_filter('transient_update_plugins', 'update_active_plugins');
+
+/************************
+ADD NITHOU TO ADMIN BAR
+************************/
+
+add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
+function remove_wp_logo( $wp_admin_bar ) {
+    $wp_admin_bar->remove_node('wp-logo');
+}
+
+add_action( 'admin_bar_menu', 'add_nodes_and_groups_to_toolbar', 999 );
+
+  function add_nodes_and_groups_to_toolbar( $wp_admin_bar ) {
+  
+    // add Nithou Parent
+    $args = array('id' => 'nth_node', 'title' => 'Nithou'); 
+    $wp_admin_bar->add_node($args);
+    
+    // Add link to Nithou
+    $args = array('id' => 'nth_web_node', 'title' => 'Visit Nithou\'s website', 'parent' => 'nth_node', 'href' => 'http://www.nithou.net'); 
+    $wp_admin_bar->add_node($args);
+    
+     // Add link to Contact
+    $args = array('id' => 'nth_contact_node', 'title' => 'Contact Me', 'parent' => 'nth_node', 'href' => 'http://www.nithou.net/apropos'); 
+    $wp_admin_bar->add_node($args);
+    
+  }
+
+/******************************
+Remove Auto Ping
+******************************/
+
+function no_self_ping( &$links ) {
+    $home = get_option( 'home_url' );
+    foreach ( $links as $l => $link )
+        if ( 0 === strpos( $link, $home ) )
+            unset($links[$l]);
+}
+add_action( 'pre_ping', 'no_self_ping' );
+
+
+
 ################################################################################
 // Comment formatting
 ################################################################################
@@ -149,19 +454,6 @@ function my_theme_register_required_plugins() {
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$plugins = array(
-
-		// This is an example of how to include a plugin pre-packaged with a theme
-				
-		array(
-			'name'     				=> 'Nithou Plugin', // The plugin name
-			'slug'     				=> 'nithou-plugin', // The plugin slug (typically the folder name)
-			'source'   				=> 'https://github.com/nithou/Nithou-Plugin/archive/master.zip', // The plugin source
-			'required' 				=> true, // If false, the plugin is only 'recommended' instead of required
-			'force_activation' 		=> true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
-			'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
-			'external_url' 			=> 'http://www.nithou.net', // If set, overrides default API URL and points to an external URL
-		),
-
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository
 		array(
