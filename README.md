@@ -48,7 +48,6 @@ The theme supports those things through its **functions.php** file :
 + **TGM Activation plugins** : displays a warning to install some plugins (Gravity Forms, WPML, Nithou Plugin, Piwik, Infinite WP Client, Maintenance Mode, Breadcrumb NavXT, Social Bartender)
 + Clean the **dashboard** from useless boxes
 + Add **support box** on the dashboard
-+ **Deactivate jpeg compression**
 + Fix quote marks issues
 
 Included

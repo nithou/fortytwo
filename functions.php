@@ -32,12 +32,6 @@ add_filter('language_attributes', 'add_opengraph_doctype');
 if ( ! isset( $content_width ) ) $content_width = 980;
 
 /************************
-Deactivate image compression
-************************/
-
-add_filter('jpeg_quality', function($arg){return 100;});
-
-/************************
 Nithou Login Function
 ************************/
 
