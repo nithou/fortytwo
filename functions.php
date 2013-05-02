@@ -158,20 +158,6 @@ function wpbeginner_remove_version() {
 add_filter('the_generator', 'wpbeginner_remove_version');
 
 /******************************
-Change Email From Website
-******************************/
-
-add_filter('wp_mail_from', 'new_mail_from');
-add_filter('wp_mail_from_name', 'new_mail_from_name');
-
-function new_mail_from($old) {
- return 'simon@nithou.net';
-}
-function new_mail_from_name($old) {
- return 'Mail from your website';
-}
-
-/******************************
 Autoclean editor by closing tags
 ******************************/
 

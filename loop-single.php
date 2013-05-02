@@ -18,7 +18,11 @@
 	 </article> <!-- closes the first div box -->
 	 
 	 <!-- CALL THE COMMENTS TEMPLATE -->
-	 <?php comments_template(); ?> 
+	 <?php
+				// If comments are open or we have at least one comment, load up the comment template
+				if ( comments_open() || '0' != get_comments_number() )
+					comments_template();
+	?>
 	
 	 <!-- Stop The Loop (but note the "else:" - see next line). -->
 	 <?php endwhile; else: ?>
