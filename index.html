@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Fortytwo-theme by nithou</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Fortytwo-theme</h1>
+        <p>Parent theme for Wordpress based on Foundation Framework</p>
+
+        <p class="view"><a href="https://github.com/nithou/Fortytwo-Theme">View the Project on GitHub <small>nithou/Fortytwo-Theme</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/nithou/Fortytwo-Theme/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/nithou/Fortytwo-Theme/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/nithou/Fortytwo-Theme">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="fortytwo-theme" class="anchor" href="#fortytwo-theme"><span class="octicon octicon-link"></span></a>Fortytwo-Theme</h1>
+
+<p>Parent theme for Wordpress based on <a href="http://foundation.zurb.com/docs/">Foundation Framework</a>, lots of improvements glanced here and there on the internet and added to this theme for better bases.</p>
+
+<h2>
+<a name="theme-loops" class="anchor" href="#theme-loops"><span class="octicon octicon-link"></span></a>Theme Loops</h2>
+
+<p>The theme offers basic loops :</p>
+
+<ul>
+<li>
+<strong>loop-excerpt.php</strong> : displays a post title, post metas and excerpt</li>
+<li>
+<strong>loop-page.php</strong> : classic page display (title &amp; content)</li>
+<li>
+<strong>loop-single.php</strong> : classic single post display (title, content, metadata, comments)</li>
+</ul><h2>
+<a name="inject-parts" class="anchor" href="#inject-parts"><span class="octicon octicon-link"></span></a>Inject Parts</h2>
+
+<p>The theme offers two files, offering the possibility to inject things in the header and the footer without interfering with the classic ones :</p>
+
+<ul>
+<li><strong>inject-footer.php</strong></li>
+<li><strong>inject-header.php</strong></li>
+</ul><h2>
+<a name="loaded-with" class="anchor" href="#loaded-with"><span class="octicon octicon-link"></span></a>Loaded with</h2>
+
+<ul>
+<li><strong>Favicon</strong></li>
+<li>Load <strong>ie.css</strong> for &lt;IE9</li>
+<li>
+<strong>html5.js</strong> from google for &lt;IE9</li>
+<li>
+<strong>Respond</strong> scripts (enabling responsive design on old browsers</li>
+<li>Allow <strong>zoom on handeld devices</strong> while keeping the ability to scale to viewport</li>
+<li>Speed up by sending header first through <strong>flush</strong>
+</li>
+</ul><h2>
+<a name="themes-functions" class="anchor" href="#themes-functions"><span class="octicon octicon-link"></span></a>Theme's functions</h2>
+
+<p>The theme supports those things through its <strong>functions.php</strong> file :</p>
+
+<ul>
+<li>Automatic <strong>feed links</strong>
+</li>
+<li>Navigation <strong>menus</strong>
+</li>
+<li>Post <strong>thumbnails</strong>
+</li>
+<li>Ensure <strong>maximum image size</strong> regarding to content width</li>
+<li>Improve <strong>comment formatting</strong>
+</li>
+<li>Google's <strong>rich snippets</strong>
+</li>
+<li>Load <strong>several scripts</strong> from CDN : Jquery Reveal / Customforms / Placeholder / Tooltips, App.js, off-canvas.js</li>
+<li>Clean the <strong>dashboard</strong> from useless boxes</li>
+<li>Add <strong>support box</strong> on the dashboard</li>
+<li>Fix quote marks issues</li>
+</ul><h2>
+<a name="included" class="anchor" href="#included"><span class="octicon octicon-link"></span></a>Included</h2>
+
+<p>The parent theme includes <strong>timthumb.php</strong> for on-the-fly image resizing.</p>
+
+<h2>
+<a name="template-pages" class="anchor" href="#template-pages"><span class="octicon octicon-link"></span></a>Template Pages</h2>
+
+<p><strong>Default pages</strong> included :</p>
+
+<ul>
+<li>404.php</li>
+<li>tags.php</li>
+<li>single.php</li>
+<li>page.php</li>
+<li>search.php</li>
+<li>index.php</li>
+<li>category.php</li>
+</ul><h2>
+<a name="security--speed" class="anchor" href="#security--speed"><span class="octicon octicon-link"></span></a>Security &amp; Speed</h2>
+
+<ul>
+<li>No <strong>login error</strong> displayed</li>
+<li>Remove <strong>auto ping</strong>
+</li>
+<li>Set <strong>revisions</strong> to 10 versions.</li>
+<li>Remove <strong>useless links</strong> from header</li>
+<li>Remove <strong>version number</strong>
+</li>
+</ul><h2>
+<a name="branded" class="anchor" href="#branded"><span class="octicon octicon-link"></span></a>Branded</h2>
+
+<ul>
+<li>Change e-mail address <strong>from the website</strong>
+</li>
+<li>Add a <strong>box in admin bar</strong> linking to Nithou's website.</li>
+</ul><h2>
+<a name="improvements" class="anchor" href="#improvements"><span class="octicon octicon-link"></span></a>Improvements</h2>
+
+<ul>
+<li>
+<strong>Shortcodes</strong> : e-mail protection, members only text</li>
+<li>Allow <strong>HTML in users profiles</strong>
+</li>
+<li>Updated users <strong>contact fields</strong>
+</li>
+<li>
+<strong>Autoclean editor</strong> by closing open tags</li>
+<li>Dynamic <strong>copyright</strong> (called by dynamic_copyright)</li>
+<li>Fix <strong>notifications</strong>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nithou">nithou</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
