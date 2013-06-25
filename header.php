@@ -54,9 +54,6 @@
   <!-- Included Foundation CSS Files -->
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/stylesheets/foundation.min.css">
   
-  <!-- WORDPRESS DEFAULTS REBUILD -->
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/stylesheets/wp.css">
-  
   <!--[if lt IE 9]>
     <link rel="stylesheet" href="stylesheets/ie.css">
   <![endif]-->

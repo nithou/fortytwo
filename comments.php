@@ -1,7 +1,7 @@
 <div id="comments">
 
 	<?php if ( post_password_required() ) : ?>
-			<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.' ); ?></p></div><!-- #comments -->
+			<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.','fortytwo'); ?></p></div><!-- #comments -->
 	<?php return; endif; ?>
 
 	<?php if ( have_comments() ) : ?>
@@ -32,7 +32,7 @@
 		<?php else : 
 			if ( ! comments_open() && have_comments() ) :
 		?>
-		<p class="nocomments"><?php _e( 'Comments are closed.' ); ?></p>
+		<p class="nocomments"><?php _e( 'Comments are closed.','fortytwo'); ?></p>
 		<?php endif; ?>
 
 	<?php endif; ?>

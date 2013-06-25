@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="small-1 large-12 columns">
-      <h2><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a></h2>
+      <h2><a href="<?php echo home_url(''); ?>"><?php bloginfo('name'); ?></a></h2>
       <nav id="main-nav" role="navigation"><?php wp_nav_menu( array( 'container_class' => 'header-menu', 'theme_location' => 'primary' ) ); ?></nav>
 
     </div>

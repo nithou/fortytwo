@@ -2,9 +2,6 @@
 
 // Adding Translation Option
 load_theme_textdomain( 'fortytwo', TEMPLATEPATH.'/languages' );
-$locale = get_locale();
-$locale_file = TEMPLATEPATH."/languages/$locale.php";
-if ( is_readable($locale_file) ) require_once($locale_file);
 
 // ADDING THEME SUPPORT */
 
@@ -12,11 +9,23 @@ add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'nav-menus' );
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'menus' );
+add_theme_support( 'custom-background' );
 
 // ADDING A PRIMARY NAVIGATION */
 register_nav_menus( array(
-	'primary' => __( 'Header Menu' ),
+	'primary' => __( 'Header Menu','fortytwo'),
 ) );
+
+
+// RIGHT SIDEBAR 
+
+register_sidebar(array(
+  'name' => __( 'Right Sidebar','fortytwo'),
+  'id' => 'right-sidebar',
+  'description' => __( 'Widgets in this area will be shown on the right-hand side.','fortytwo' ),
+  'before_title' => '<h1>',
+  'after_title' => '</h1>'
+));
 
 /******************************/
 // Inject OpenGraph
@@ -327,11 +336,11 @@ function theme_comments($comment, $args, $depth) {
        <header class="comment-author vcard">
           <?php echo get_avatar($comment,$size='48',$default='<path_to_url>' ); ?>
           <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
-          <time><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a></time>
-          <?php edit_comment_link(__('(Edit)'),'  ','') ?>
+          <time><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s','fortytwo'), get_comment_date(),  get_comment_time()) ?></a></time>
+          <?php edit_comment_link(__('(Edit)','fortytwo'),'  ','') ?>
        </header>
        <?php if ($comment->comment_approved == '0') : ?>
-          <em><?php _e('Your comment is awaiting moderation.') ?></em>
+          <em><?php _e('Your comment is awaiting moderation.','fortytwo') ?></em>
           <br />
        <?php endif; ?>
 
@@ -469,7 +478,7 @@ function my_theme_register_required_plugins() {
 	);
 
 	// Change this to your theme text domain, used for internationalising strings
-	$theme_text_domain = 'tgmpa';
+	$theme_text_domain = 'fourtytwo';
 
 	/**
 	 * Array of configuration settings. Amend each line as needed.

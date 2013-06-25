@@ -3,7 +3,7 @@
 	<article>
 
 		<!-- Display the Title as a link to the Post's permalink. -->
-		 <h2 itemprop="headline"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Link to'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+		 <h2 itemprop="headline"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Link to','fortytwo'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 		
 		 <!-- Display the Post's Content in a div box. -->
 		 <div class="entry" itemprop="articleBody">
@@ -18,7 +18,7 @@
 	
 	 <!-- The very first "if" tested to see if there were any Posts to -->
 	 <!-- display.  This "else" part tells what do if there weren't any. -->
-	 <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+	 <p><?php _e('Sorry, no posts matched your criteria.','fortytwo'); ?></p>
 	
 	 <!-- REALLY stop The Loop. -->
 		 

@@ -7,7 +7,7 @@
 				
 	<?php else : ?>
 	
-		<p><?php _e('No Sidebar defined'); ?></p>
+		<p><?php _e('No Sidebar defined','fortytwo'); ?></p>
 		
 	<?php endif; ?>
 </aside>
