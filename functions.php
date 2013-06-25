@@ -86,7 +86,7 @@ add_action('wp_dashboard_setup', 'fortytwo_dashboard_widgets');
 function fortytwo_dashboard_widgets() {
 global $wp_meta_boxes;
 
-wp_add_dashboard_widget('custom_help_widget', 'Nithou Support', 'custom_dashboard_help');
+wp_add_dashboard_widget('custom_help_widget', 'Nithou Support', 'fortytwo_dashboard_help');
 }
 
 function fortytwo_dashboard_help() {
@@ -308,11 +308,11 @@ add_action( 'admin_bar_menu', 'add_nodes_and_groups_to_toolbar', 999 );
     $wp_admin_bar->add_node($args);
     
     // Add link to Nithou
-    $args = array('id' => 'nth_web_node', 'title' => 'Visit Nithou\'s website', 'parent' => 'nth_node', 'href' => 'http://www.nithou.net'); 
+    $args = array('id' => 'nth_web_node', 'title' => 'Website', 'parent' => 'nth_node', 'href' => 'http://www.nithou.net'); 
     $wp_admin_bar->add_node($args);
     
      // Add link to Contact
-    $args = array('id' => 'nth_contact_node', 'title' => 'Contact Me', 'parent' => 'nth_node', 'href' => 'http://www.nithou.net/apropos'); 
+    $args = array('id' => 'nth_contact_node', 'title' => 'General Conditions', 'parent' => 'nth_node', 'href' => 'http://www.nithou.net/conditions-generales'); 
     $wp_admin_bar->add_node($args);
     
   }
