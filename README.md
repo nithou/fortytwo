@@ -25,7 +25,6 @@ Loaded with
 + Load **ie.css** for <IE9
 + **html5.js** from google for <IE9
 + **Respond** scripts (enabling responsive design on old browsers
-+ SEO Optimized **Opengraph Meta** (changing if page of other)
 + Allow **zoom on handeld devices** while keeping the ability to scale to viewport
 + Speed up by sending header first through **flush**
 
@@ -39,7 +38,6 @@ The theme supports those things through its **functions.php** file :
 + Improve **comment formatting**
 + Google's **rich snippets**
 + Load **several scripts** from CDN : Jquery Reveal / Customforms / Placeholder / Tooltips, App.js, off-canvas.js
-+ **TGM Activation plugins** : displays a warning to install some plugins (WP Piwiki, InfiniteWP, Maintenance Mode, Breadcrumb NavXT)
 + Clean the **dashboard** from useless boxes
 + Add **support box** on the dashboard
 + Fix quote marks issues
