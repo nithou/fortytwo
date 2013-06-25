@@ -18,16 +18,11 @@ The theme offers two files, offering the possibility to inject things in the hea
 + **inject-footer.php**
 + **inject-header.php**
 
-Header
-------
+Loaded with
+-----------
 
-The header sets all the defaults for things such as :
 + **Favicon**
-+ **Apple Icon** (iPhone, iPad)
-+ **Apple Startup Image** for webapps (iPhone, iPhone Retina, iPad (portrait & paysage), iPad Retina)
-+ Enable **webapp mode**
-+ **Foundation Framework 4 + Wordpress Rebuild CSS** (avoid problems)
-+ Load a **specific css** for <IE9
++ Load **ie.css** for <IE9
 + **html5.js** from google for <IE9
 + **Respond** scripts (enabling responsive design on old browsers
 + SEO Optimized **Opengraph Meta** (changing if page of other)
@@ -40,12 +35,11 @@ The theme supports those things through its **functions.php** file :
 + Automatic **feed links**
 + Navigation **menus**
 + Post **thumbnails**
-+ Inject **opengraph doctype**
 + Ensure **maximum image size** regarding to content width
 + Improve **comment formatting**
 + Google's **rich snippets**
-+ Load **several scripts** from Nithou CDN (http://assets.nithou.net) : Jquery Reveal / Customforms / Placeholder / Tooltips, App.js, off-canvas.js
-+ **TGM Activation plugins** : displays a warning to install some plugins (Gravity Forms, WPML, Nithou Plugin, Piwik, Infinite WP Client, Maintenance Mode, Breadcrumb NavXT, Social Bartender)
++ Load **several scripts** from CDN : Jquery Reveal / Customforms / Placeholder / Tooltips, App.js, off-canvas.js
++ **TGM Activation plugins** : displays a warning to install some plugins (WP Piwiki, InfiniteWP, Maintenance Mode, Breadcrumb NavXT)
 + Clean the **dashboard** from useless boxes
 + Add **support box** on the dashboard
 + Fix quote marks issues

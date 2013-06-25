@@ -27,14 +27,6 @@ register_sidebar(array(
   'after_title' => '</h1>'
 ));
 
-/******************************/
-// Inject OpenGraph
-/******************************/
-
-function add_opengraph_doctype( $output ) {
-		return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
-	}
-add_filter('language_attributes', 'add_opengraph_doctype');
 
 // Ensure maximum image size 
 

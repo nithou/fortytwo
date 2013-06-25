@@ -17,55 +17,21 @@
   
   <link rel="profile" href="http://gmpg.org/xfn/11" />
   
-  <!-- ENQUEUE COMMENTS -->
+  <!-- ENQUEUE -->
   <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
-  
-  <!-- INCLUDE JQUERY -->
   <?php wp_enqueue_script("jquery"); ?>
-  
-  <!-- INCLUDE WORDPRESS INJECTION -->
-  <?php wp_head(); ?>
   
   <!-- INCLUDE FAVICON & APPLE ICON -->
   
   <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico?v=3">
-  <link rel="apple-touch-icon-precomposed" href="<?php echo get_stylesheet_directory_uri(); ?>/apple-touch-icon.png">
-  
-  <!-- startup image for web apps - iPad - landscape (748x1024) 
-     Note: iPad landscape startup image has to be exactly 748x1024 pixels (portrait, with contents rotated).-->
-     <link rel="apple-touch-startup-image" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" href="<?php echo get_stylesheet_directory_uri(); ?>/startup_ipad.png"/>
-
-  <!-- startup image for web apps - iPad - portrait (768x1004) -->
-  <link rel="apple-touch-startup-image" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" href="<?php echo get_stylesheet_directory_uri(); ?>/startup_ipad_portrait.png"/>
-  
-  <!-- RETINA IPAD -->
-  <link rel="apple-touch-startup-image" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 2)" href="<?php echo get_stylesheet_directory_uri(); ?>/startup_ipad_retina.png"/>
-
-  <!-- iPhone -->
-  <link rel="apple-touch-startup-image" media="(device-width: 320px)" href="<?php echo get_stylesheet_directory_uri(); ?>/startup.png">
-  <!-- iPhone (Retina) -->
-  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" href="<?php echo get_stylesheet_directory_uri(); ?>/startup-retina.png">
-      
-  
-  <!-- WEBAPP MODE -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-  <!-- Included Foundation CSS Files -->
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/stylesheets/foundation.min.css">
   
   <!--[if lt IE 9]>
     <link rel="stylesheet" href="stylesheets/ie.css">
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   
   <!-- INJECT THEME STYLESHEET -->
   <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
-
-  <!-- IE Fix for HTML5 Tags -->
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
- 
   
   <!-- OPENGRAPH META -->
 	
@@ -83,7 +49,9 @@
 	<meta property="og:site_name" content="<?php bloginfo('name'); ?>" />  
 	<meta property="og:description" content="<?php bloginfo('description'); ?>" />  
 	<meta property="og:type" content="website" />  
-	<meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/logo.png" /> <?php } ?>  
+	<meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/logo.png" /> 
+
+  <?php } ?>  
   
   <!-- JAVASCRIPT FIX ALLOWING ZOOM ON HANDLED DEVICES -->
   <script type="text/javascript">
@@ -110,10 +78,13 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	
 	<?php get_template_part('inject','header'); ?>
-
+  
+  <!-- INCLUDE WORDPRESS INJECTION -->
+  <?php wp_head(); ?>
+  
 </head>
 
 <!-- SPEED UP WORDPRESS BY SENDING HEADER FIRST -->
 <?php flush(); ?>
 
-<body <?php body_class('off-canvas slide-nav');?> >
+<body <?php body_class();?> >
