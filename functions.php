@@ -44,10 +44,10 @@ if ( ! isset( $content_width ) ) $content_width = 980;
 Nithou Login Function
 ************************/
 
-function custom_login_style() {
+function fortytwo_custom_login_style() {
     echo '<link rel="stylesheet" type="text/css" href="http://nithou.net/assets/login.css" />';
 }
-add_action('login_head', 'custom_login_style');
+add_action('login_head', 'fortytwo_custom_login_style');
 
 /************************
 Set post revisions to 10 versions
@@ -59,7 +59,7 @@ if (!defined('WP_POST_REVISIONS')) define('WP_POST_REVISIONS', 10);
 Clean Dashboard & add Nithou Support
 ***************************************/
 
-function example_remove_dashboard_widgets() {
+function fortytwo_remove_dashboard_widgets() {
 	// Globalize the metaboxes array, this holds all the widgets for wp-admin
  	global $wp_meta_boxes;
 
@@ -77,19 +77,19 @@ function example_remove_dashboard_widgets() {
 }
 
 // Hoook into the 'wp_dashboard_setup' action to register our function
-add_action('wp_dashboard_setup', 'example_remove_dashboard_widgets' );
+add_action('wp_dashboard_setup', 'fortytwo_remove_dashboard_widgets' );
 
 // Add custom message in the Dashboard
 
-add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
+add_action('wp_dashboard_setup', 'fortytwo_dashboard_widgets');
 
-function my_custom_dashboard_widgets() {
+function fortytwo_dashboard_widgets() {
 global $wp_meta_boxes;
 
 wp_add_dashboard_widget('custom_help_widget', 'Nithou Support', 'custom_dashboard_help');
 }
 
-function custom_dashboard_help() {
+function fortytwo_dashboard_help() {
 echo '<p>Welcome to your website! If you need any help, I\'ll be glad to help you at <a href="simon@pnithou.net">simon@nithou.net</a></p>';
 }
 
@@ -97,7 +97,7 @@ echo '<p>Welcome to your website! If you need any help, I\'ll be glad to help yo
 Nithou Admin Footer
 ***************************************/
 
-function custom_admin_footer() {
+function fortytwo_admin_footer() {
         echo 'Crafted & developed by <a href="http://www.nithou.net">Nithou</a>';
 } 
 add_filter('admin_footer_text', 'custom_admin_footer');
@@ -136,7 +136,7 @@ function hide_profile_fields( $contactmethods ) {
 	return $contactmethods;
 }
 
-function my_new_contactmethods( $contactmethods ) {
+function fortytwo_contactmethods( $contactmethods ) {
 
 // 	Add Twitter
 $contactmethods['twitter'] = 'Twitter';
@@ -144,9 +144,15 @@ $contactmethods['twitter'] = 'Twitter';
 //	Add Facebook
 $contactmethods['facebook'] = 'Facebook';
 
+//  Add Linkedin
+$contactmethods['linkedin'] = 'Linkedin';
+
+//  Add Google+
+$contactmethods['gplus'] = 'Google+';
+
 return $contactmethods;
 }
-add_filter('user_contactmethods','my_new_contactmethods',10,1);
+add_filter('user_contactmethods','fortytwo_contactmethods',10,1);
 
 
 /******************************
@@ -161,10 +167,10 @@ remove_action('wp_head', 'start_post_rel_link', 10, 0);
 remove_action('wp_head', 'parent_post_rel_link', 10, 0);
 remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 
-function wpbeginner_remove_version() {
+function fortytwo_remove_version() {
 	return '';
 }
-add_filter('the_generator', 'wpbeginner_remove_version');
+add_filter('the_generator', 'fortytwo_remove_version');
 
 /******************************
 Autoclean editor by closing tags
@@ -184,31 +190,31 @@ function clean_bad_content($bPrint = false) {
 Email protection shortcode [mailto]
 ******************************/
 
-function cwc_mail_shortcode( $atts , $content=null ) {
+function fortytwo_mail_shortcode( $atts , $content=null ) {
     for ($i = 0; $i < strlen($content); $i++) $encodedmail .= "&#" . ord($content[$i]) . ';'; 
     return '<a href="mailto:'.$encodedmail.'">'.$encodedmail.'</a>';
 }
-add_shortcode('mailto', 'cwc_mail_shortcode');
+add_shortcode('mailto', 'fortytwo_mail_shortcode');
 
 /******************************
 Text only if member [member]
 ******************************/
 
-function cwc_member_check_shortcode( $atts, $content = null ) {
+function fortytwo_member_check_shortcode( $atts, $content = null ) {
 	 if ( is_user_logged_in() && !is_null( $content ) && !is_feed() )
 		return $content;
 	return '';
 }
 
-add_shortcode( 'member', 'cwc_member_check_shortcode' );
+add_shortcode( 'member', 'fortytwo_member_check_shortcode' );
 
 /******************************
 MetaBox for shortcodes instructions
 ******************************/
-add_action( 'add_meta_boxes', 'plw_meta_box_add' );  
-function plw_meta_box_add()  
+add_action( 'add_meta_boxes', 'fortytwo_meta_box_add' );  
+function fortytwo_meta_box_add()  
 {
-add_meta_box( 'plw_meta_box', 'Nithou Shortcodes', 'display_html', 'post', 'side', 'high' );
+add_meta_box( 'fortytwo_meta_box', 'Nithou Shortcodes', 'display_html', 'post', 'side', 'high' );
 }
 
 function display_html()
@@ -423,7 +429,7 @@ add_action('init', 'my_init');
  */
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+add_action( 'tgmpa_register', 'fortytwo_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  *
@@ -436,7 +442,7 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function my_theme_register_required_plugins() {
+function fortytwo_register_required_plugins() {
 
 	/**
 	 * Array of plugin arrays. Required keys are name and slug.
