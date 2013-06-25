@@ -100,7 +100,7 @@ Nithou Admin Footer
 function fortytwo_admin_footer() {
         echo 'Crafted & developed by <a href="http://www.nithou.net">Nithou</a>';
 } 
-add_filter('admin_footer_text', 'custom_admin_footer');
+add_filter('admin_footer_text', 'fortytwo_admin_footer');
 
 /******************************
 Allow Shortcodes in Widgets
