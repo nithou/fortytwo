@@ -21,37 +21,17 @@
   <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
   <?php wp_enqueue_script("jquery"); ?>
   
-  <!-- INCLUDE FAVICON & APPLE ICON -->
+  <!-- INCLUDE FAVICON -->
   
   <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico?v=3">
   
-  <!--[if lt IE 9]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  
   <!-- INJECT THEME STYLESHEET -->
   <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
-  
-  <!-- OPENGRAPH META -->
-	
-	<?php if (have_posts()):while(have_posts()):the_post(); endwhile; endif;?>  
-	  
-	<!-- if page is content page -->  
-	<?php if (is_single()) { ?>  
-	<meta property="og:url" content="<?php the_permalink() ?>"/>  
-	<meta property="og:description" content="<?php echo strip_tags(get_the_excerpt($post->ID)); ?>" />  
-	<meta property="og:type" content="article" />  
-	<meta property="og:image" content="<?php if (function_exists('wp_get_attachment_thumb_url')) {echo wp_get_attachment_thumb_url(get_post_thumbnail_id($post->ID)); }?>" />  
-	  
-	<!-- if page is others -->  
-	<?php } else { ?>  
-	<meta property="og:site_name" content="<?php bloginfo('name'); ?>" />  
-	<meta property="og:description" content="<?php bloginfo('description'); ?>" />  
-	<meta property="og:type" content="website" />  
-	<meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/logo.png" /> 
 
-  <?php } ?>  
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
   
   <!-- JAVASCRIPT FIX ALLOWING ZOOM ON HANDLED DEVICES -->
   <script type="text/javascript">
