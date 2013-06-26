@@ -2,7 +2,6 @@
 			
 	<article>
 
-		<?php get_template_part('add','breadcrumbs'); ?> <!-- ACTIVE ONLY IF BREADCRUMB NAVXT IS INSTALLED -->
 		<!-- Display the Title as a link to the Post's permalink. -->
 		 <h2 itemprop="headline"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Link to','fortytwo'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 		

@@ -2,7 +2,6 @@
 			
 	<article itemtype="http://schema.org/BlogPosting"  id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<?php get_template_part('add','breadcrumbs'); ?> <!-- ACTIVE ONLY IF BREADCRUMB NAVXT IS INSTALLED -->
 		<!-- Display the Title as a link to the Post's permalink. -->
 
 		<aside>
