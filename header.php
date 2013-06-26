@@ -23,7 +23,7 @@
   
   <!-- INCLUDE FAVICON -->
   
-  <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico?v=3">
+  <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico">
   
   <!-- INJECT THEME STYLESHEET -->
   <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
