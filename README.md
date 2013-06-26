@@ -42,10 +42,6 @@ The theme supports those things through its **functions.php** file :
 + Add **support box** on the dashboard
 + Fix quote marks issues
 
-Included
---------
-The parent theme includes **timthumb.php** for on-the-fly image resizing.
-
 Template Pages
 --------------
 **Default pages** included :
