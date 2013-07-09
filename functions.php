@@ -178,42 +178,6 @@ function clean_bad_content($bPrint = false) {
  else echo $szPostContent;
    }
 
-/******************************
-Email protection shortcode [mailto]
-******************************/
-
-function fortytwo_mail_shortcode( $atts , $content=null ) {
-    for ($i = 0; $i < strlen($content); $i++) $encodedmail .= "&#" . ord($content[$i]) . ';'; 
-    return '<a href="mailto:'.$encodedmail.'">'.$encodedmail.'</a>';
-}
-add_shortcode('mailto', 'fortytwo_mail_shortcode');
-
-/******************************
-Text only if member [member]
-******************************/
-
-function fortytwo_member_check_shortcode( $atts, $content = null ) {
-	 if ( is_user_logged_in() && !is_null( $content ) && !is_feed() )
-		return $content;
-	return '';
-}
-
-add_shortcode( 'member', 'fortytwo_member_check_shortcode' );
-
-/******************************
-MetaBox for shortcodes instructions
-******************************/
-add_action( 'add_meta_boxes', 'fortytwo_meta_box_add' );  
-function fortytwo_meta_box_add()  
-{
-add_meta_box( 'fortytwo_meta_box', 'Nithou Shortcodes', 'display_html', 'post', 'side', 'high' );
-}
-
-function display_html()
-{
-	echo '<p>Use <b>[mailto]</b>adress@domain.com<b>[/mailto]</b> to protect your email from spam.</p>';
-	echo '<p>Use <b>[member]</b>Your text<b>[/member]</b> to make a text visible only by members.</p>';
-}
 
 /******************************
 Dynamic Copyright
@@ -395,18 +359,3 @@ function wp_foundation_js(){
 }
 
 add_action('wp_enqueue_scripts', 'wp_foundation_js');
-
-
-/* Call jquery in the footer */
-
-function my_init() {
-	if (!is_admin()) {
-		wp_deregister_script('jquery');
-
-		// load the local copy of jQuery in the footer
-		wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.8.3', true);
-
-		wp_enqueue_script('jquery');
-	}
-}
-add_action('init', 'my_init');
