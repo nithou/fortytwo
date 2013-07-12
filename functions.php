@@ -33,7 +33,7 @@ register_sidebar(array(
 if ( ! isset( $content_width ) ) $content_width = 980;
 
 /************************
-Nithou Login Function
+Revamp Login Function
 ************************/
 
 function fortytwo_custom_login_style() {
@@ -48,15 +48,18 @@ Set post revisions to 10 versions
 if (!defined('WP_POST_REVISIONS')) define('WP_POST_REVISIONS', 10);
 
 /***************************************
-Clean Dashboard & add Nithou Support
+Clean Dashboard
 ***************************************/
 
 function fortytwo_remove_dashboard_widgets() {
 	// Globalize the metaboxes array, this holds all the widgets for wp-admin
  	global $wp_meta_boxes;
+
+  // Remove the incomming links widget
+  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
 	
 	// Remove Dashboard Plugins
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);	
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
 
 	// Remove right now
 	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);

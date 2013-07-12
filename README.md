@@ -37,7 +37,6 @@ The theme supports those things through its **functions.php** file :
 + Ensure **maximum image size** regarding to content width
 + Improve **comment formatting**
 + Google's **rich snippets**
-+ Load **several scripts** from CDN : Jquery Reveal / Customforms / Placeholder / Tooltips, App.js, off-canvas.js
 + Clean the **dashboard** from useless boxes
 + Add **support box** on the dashboard
 + Fix quote marks issues
@@ -61,14 +60,9 @@ Security & Speed
 + Remove **useless links** from header
 + Remove **version number**
 
-Branded
---------
-+ Change e-mail address **from the website**
-+ Add a **box in admin bar** linking to Nithou's website.
 
 Improvements
 ------------
-+ **Shortcodes** : e-mail protection, members only text
 + Allow **HTML in users profiles**
 + Updated users **contact fields**
 + **Autoclean editor** by closing open tags
