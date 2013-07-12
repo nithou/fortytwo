@@ -54,15 +54,11 @@ Clean Dashboard & add Nithou Support
 function fortytwo_remove_dashboard_widgets() {
 	// Globalize the metaboxes array, this holds all the widgets for wp-admin
  	global $wp_meta_boxes;
-
-	// Remove the incomming links widget
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);	
 	
 	// Remove Dashboard Plugins
 	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);	
 
 	// Remove right now
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
 	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
 	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
 	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
@@ -70,20 +66,6 @@ function fortytwo_remove_dashboard_widgets() {
 
 // Hoook into the 'wp_dashboard_setup' action to register our function
 add_action('wp_dashboard_setup', 'fortytwo_remove_dashboard_widgets' );
-
-// Add custom message in the Dashboard
-
-add_action('wp_dashboard_setup', 'fortytwo_dashboard_widgets');
-
-function fortytwo_dashboard_widgets() {
-global $wp_meta_boxes;
-
-wp_add_dashboard_widget('custom_help_widget', 'Nithou Support', 'fortytwo_dashboard_help');
-}
-
-function fortytwo_dashboard_help() {
-echo '<p>Welcome to your website! If you need any help, I\'ll be glad to help you at <a href="simon@pnithou.net">simon@nithou.net</a></p>';
-}
 
 /***************************************
 Nithou Admin Footer
@@ -146,6 +128,14 @@ return $contactmethods;
 }
 add_filter('user_contactmethods','fortytwo_contactmethods',10,1);
 
+/******************************
+ REMOVE WP ICON FROM HEADER BAR
+ ******************************/
+
+add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
+function remove_wp_logo( $wp_admin_bar ) {
+    $wp_admin_bar->remove_node('wp-logo');
+}
 
 /******************************
 Remove for security)
@@ -245,33 +235,6 @@ function update_active_plugins($value = '') {
     return $value;
 }
 add_filter('transient_update_plugins', 'update_active_plugins');
-
-/************************
-ADD NITHOU TO ADMIN BAR
-************************/
-
-add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
-function remove_wp_logo( $wp_admin_bar ) {
-    $wp_admin_bar->remove_node('wp-logo');
-}
-
-add_action( 'admin_bar_menu', 'add_nodes_and_groups_to_toolbar', 999 );
-
-  function add_nodes_and_groups_to_toolbar( $wp_admin_bar ) {
-  
-    // add Nithou Parent
-    $args = array('id' => 'nth_node', 'title' => 'Nithou'); 
-    $wp_admin_bar->add_node($args);
-    
-    // Add link to Nithou
-    $args = array('id' => 'nth_web_node', 'title' => 'Website', 'parent' => 'nth_node', 'href' => 'http://www.nithou.net'); 
-    $wp_admin_bar->add_node($args);
-    
-     // Add link to Contact
-    $args = array('id' => 'nth_contact_node', 'title' => 'General Conditions', 'parent' => 'nth_node', 'href' => 'http://www.nithou.net/conditions-generales'); 
-    $wp_admin_bar->add_node($args);
-    
-  }
 
 /******************************
 Remove Auto Ping
@@ -374,3 +337,7 @@ function my_init() {
 	}
 }
 add_action('init', 'my_init');
+
+/* Gimme more */
+
+require_once('inc/shortcodes.php');
