@@ -284,7 +284,30 @@ function theme_comments($comment, $args, $depth) {
 
 /************* ENQUEUE JS *************************/
 
+
+/* Call jquery in the footer */
+
+function my_init() {
+  if (!is_admin()) {
+    wp_deregister_script('jquery');
+
+    // load the local copy of jQuery in the footer
+    wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.8.3', true);
+
+    wp_enqueue_script('jquery');
+  }
+}
+add_action('init', 'my_init');
+
+
 /* Load Foundation Scripts */
+
+function wp_foundation_js(){
+    wp_register_script( 'wp-foundation-js', 'http://assets.nithou.net/scripts/fnd4/foundation.min.js', 'jQuery', '', true);
+    wp_enqueue_script( 'wp-foundation-js' );
+}
+
+add_action('wp_enqueue_scripts', 'wp_foundation_js');
 
 function foundation_js(){
     wp_register_script( 'foundation-reveal', 'http://assets.nithou.net/scripts/fnd4/foundation/foundation.forms.js' ); 
@@ -294,25 +317,3 @@ function foundation_js(){
 }
 
 add_action('wp_enqueue_scripts', 'foundation_js');
-
-function wp_foundation_js(){
-    wp_register_script( 'wp-foundation-js', 'http://assets.nithou.net/scripts/fnd4/foundation.min.js', 'jQuery', '', true);
-    wp_enqueue_script( 'wp-foundation-js' );
-}
-
-add_action('wp_enqueue_scripts', 'wp_foundation_js');
-
-
-/* Call jquery in the footer */
-
-function my_init() {
-	if (!is_admin()) {
-		wp_deregister_script('jquery');
-
-		// load the local copy of jQuery in the footer
-		wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.8.3', true);
-
-		wp_enqueue_script('jquery');
-	}
-}
-add_action('init', 'my_init');
