@@ -310,7 +310,7 @@ function wp_foundation_js(){
 add_action('wp_enqueue_scripts', 'wp_foundation_js');
 
 function foundation_js(){
-    wp_register_script( 'foundation-reveal', 'http://assets.nithou.net/scripts/fnd4/foundation/foundation.forms.js' ); 
+    wp_register_script( 'foundation-reveal', 'http://assets.nithou.net/scripts/fnd4/foundation/foundation.forms.js', true ); 
     wp_enqueue_script( 'foundation-reveal', 'jQuery', '1.1', true );
     wp_register_script( 'foundation-reveal', 'http://assets.nithou.net/scripts/fnd4/foundation/foundation.placeholder.js' ); 
     wp_enqueue_script( 'foundation-reveal', 'jQuery', '1.1', true );
