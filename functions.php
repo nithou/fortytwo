@@ -291,7 +291,7 @@ function my_init() {
     wp_deregister_script('jquery');
 
     // load the local copy of jQuery in the footer
-    wp_register_script('jquery', 'http://code.jquery.com/jquery-latest.min.js', false, '', true);
+    wp_register_script('jquery', 'http://code.jquery.com/jquery-latest.min.js', false, '', false);
 
     wp_enqueue_script('jquery');
   }
