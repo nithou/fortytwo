@@ -15,17 +15,17 @@
 
 
   <title><?php wp_title('|',true,'right'); ?><?php bloginfo('name'); ?></title>
-  
+
   <link rel="profile" href="http://gmpg.org/xfn/11" />
-  
+
   <!-- ENQUEUE -->
   <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
   <?php wp_enqueue_script("jquery"); ?>
-  
+
   <!-- INCLUDE FAVICON -->
-  
+
   <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico">
-  
+
   <!-- INJECT THEME STYLESHEET -->
   <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
 
@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="stylesheets/ie.css">
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   	<![endif]-->
-  
+
   <!-- JAVASCRIPT FIX ALLOWING ZOOM ON HANDLED DEVICES -->
   <script type="text/javascript">
 		(function(doc) {
@@ -54,15 +54,15 @@
 		 }
 		}(document));
 	</script>
-	
+
 	<!-- ALLOW PINGBACK -->
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-	
+
 	<?php get_template_part('inject','header'); ?>
-  
+
   <!-- INCLUDE WORDPRESS INJECTION -->
   <?php wp_head(); ?>
-  
+
 </head>
 
 <!-- SPEED UP WORDPRESS BY SENDING HEADER FIRST -->

@@ -1,7 +1,7 @@
 Fortytwo-Theme
 ==============
 
-Parent theme for Wordpress based on [Foundation Framework](http://foundation.zurb.com/docs/), lots of improvements glanced here and there on the internet and added to this theme for better bases.
+Parent theme for Wordpress based on [Foundation 5 Framework](http://foundation.zurb.com/docs/), lots of improvements glanced here and there on the internet and added to this theme for better bases.
 
 Theme Loops
 -----------
@@ -24,7 +24,6 @@ Loaded with
 + **Favicon**
 + Load **ie.css** for <IE9
 + **html5.js** from google for <IE9
-+ **Respond** scripts (enabling responsive design on old browsers
 + Allow **zoom on handeld devices** while keeping the ability to scale to viewport
 + Speed up by sending header first through **flush**
 
@@ -38,7 +37,6 @@ The theme supports those things through its **functions.php** file :
 + Improve **comment formatting**
 + Google's **rich snippets**
 + Clean the **dashboard** from useless boxes
-+ Add **support box** on the dashboard
 + Fix quote marks issues
 
 Template Pages

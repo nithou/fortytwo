@@ -70,6 +70,9 @@ function fortytwo_remove_dashboard_widgets() {
 // Hoook into the 'wp_dashboard_setup' action to register our function
 add_action('wp_dashboard_setup', 'fortytwo_remove_dashboard_widgets' );
 
+// Remove Welcome Box
+remove_action( 'welcome_panel', 'wp_welcome_panel' );
+
 /***************************************
 Nithou Admin Footer
 ***************************************/
