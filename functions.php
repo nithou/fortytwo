@@ -17,7 +17,7 @@ register_nav_menus( array(
 ) );
 
 
-// RIGHT SIDEBAR 
+// RIGHT SIDEBAR
 
 register_sidebar(array(
   'name' => __( 'Right Sidebar','fortytwo'),
@@ -28,7 +28,7 @@ register_sidebar(array(
 ));
 
 
-// Ensure maximum image size 
+// Ensure maximum image size
 
 if ( ! isset( $content_width ) ) $content_width = 980;
 
@@ -57,7 +57,7 @@ function fortytwo_remove_dashboard_widgets() {
 
   // Remove the incomming links widget
   unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
-	
+
 	// Remove Dashboard Plugins
 	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
 
@@ -76,7 +76,7 @@ Nithou Admin Footer
 
 function fortytwo_admin_footer() {
         echo 'Crafted & developed by <a href="http://www.nithou.net">Nithou</a>';
-} 
+}
 add_filter('admin_footer_text', 'fortytwo_admin_footer');
 
 /******************************
@@ -167,7 +167,7 @@ function clean_bad_content($bPrint = false) {
  $szRemoveFilter = array("~<p[^>]*>\s?</p>~", "~<a[^>]*>\s?</a>~", "~<font[^>]*>~", "~<\/font>~", "~style\=\"[^\"]*\"~", "~<span[^>]*>\s?</span>~");
  $szPostContent  = preg_replace($szRemoveFilter, '', $szPostContent);
  $szPostContent  = apply_filters('the_content', $szPostContent);
- if ($bPrint == false) return $szPostContent; 
+ if ($bPrint == false) return $szPostContent;
  else echo $szPostContent;
    }
 
@@ -215,7 +215,7 @@ function update_active_plugins($value = '') {
     if ((isset($value->response)) && (count($value->response))) {
 
         // Get the list cut current active plugins
-        $active_plugins = get_option('active_plugins');    
+        $active_plugins = get_option('active_plugins');
         if ($active_plugins) {
 
             //  Here we start to compare the $value->response
@@ -232,9 +232,9 @@ function update_active_plugins($value = '') {
              // If no active plugins then ignore the inactive out of date ones.
             foreach($value->response as $plugin_idx => $plugin_item) {
                 unset($value->response);
-            }          
+            }
         }
-    }  
+    }
     return $value;
 }
 add_filter('transient_update_plugins', 'update_active_plugins');
@@ -306,7 +306,7 @@ function foundation_assets() {
   if (!is_admin()) {
 
     // Load JavaScripts
-    wp_enqueue_script( 'foundation', 'http://assets.nithou.net/scripts/fnd4/foundation.min.js', null, '4.0', true );
+    wp_enqueue_script( 'foundation', '//cdn.jsdelivr.net/foundation/5.0.0/js/foundation/foundation.js', null, '4.0', true );
 
   }
 

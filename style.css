@@ -6,7 +6,7 @@ Github Theme URI: https://github.com/nithou/Fortytwo-Theme
 Description: Nithou's Framework for websites
 Author: Nithou
 Author URI: http://www.nithou.net
-Version: 1.7.9
+Version: 2.0.0
 Tags: white, black, blue
 
 License: GPL (Version 3, 29 June 2007)
@@ -14,6 +14,6 @@ License URI: http://www.gnu.org/licenses/gpl.html
 
 */
 
-@import url("stylesheets/reset.css");  
+@import url("stylesheets/reset.css");
 @import url("stylesheets/foundation.min.css");
-@import url("stylesheets/master.css");  
+@import url("stylesheets/master.css");
