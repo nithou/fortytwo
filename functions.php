@@ -16,7 +16,6 @@ register_nav_menus( array(
 	'primary' => __( 'Header Menu','fortytwo'),
 ) );
 
-
 // RIGHT SIDEBAR
 
 register_sidebar(array(
@@ -26,7 +25,6 @@ register_sidebar(array(
   'before_title' => '<h1>',
   'after_title' => '</h1>'
 ));
-
 
 // Ensure maximum image size
 
@@ -47,41 +45,6 @@ Set post revisions to 10 versions
 
 if (!defined('WP_POST_REVISIONS')) define('WP_POST_REVISIONS', 10);
 
-/***************************************
-Clean Dashboard
-***************************************/
-
-function fortytwo_remove_dashboard_widgets() {
-	// Globalize the metaboxes array, this holds all the widgets for wp-admin
- 	global $wp_meta_boxes;
-
-  // Remove the incomming links widget
-  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
-
-	// Remove Dashboard Plugins
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
-
-	// Remove right now
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
-}
-
-// Hoook into the 'wp_dashboard_setup' action to register our function
-add_action('wp_dashboard_setup', 'fortytwo_remove_dashboard_widgets' );
-
-// Remove Welcome Box
-remove_action( 'welcome_panel', 'wp_welcome_panel' );
-
-/***************************************
-Nithou Admin Footer
-***************************************/
-
-function fortytwo_admin_footer() {
-        echo 'Crafted & developed by <a href="http://www.nithou.net">Nithou</a>';
-}
-add_filter('admin_footer_text', 'fortytwo_admin_footer');
-
 /******************************
 Allow Shortcodes in Widgets
 ******************************/
@@ -89,13 +52,6 @@ Allow Shortcodes in Widgets
 if ( !is_admin() ){
     add_filter('widget_text', 'do_shortcode', 11);
 }
-
-/******************************
-Better Quotes Marks
-******************************/
-
-remove_filter('the_content', 'wptexturize');
-remove_filter('comment_text', 'wptexturize');
 
 /******************************
 Allow html in user profile
@@ -143,37 +99,6 @@ function remove_wp_logo( $wp_admin_bar ) {
     $wp_admin_bar->remove_node('wp-logo');
 }
 
-/******************************
-Remove for security)
-******************************/
-
-remove_action('wp_head', 'rsd_link');
-remove_action('wp_head', 'wp_generator');
-remove_action('wp_head', 'index_rel_link');
-remove_action('wp_head', 'wlwmanifest_link');
-remove_action('wp_head', 'start_post_rel_link', 10, 0);
-remove_action('wp_head', 'parent_post_rel_link', 10, 0);
-remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
-
-function fortytwo_remove_version() {
-	return '';
-}
-add_filter('the_generator', 'fortytwo_remove_version');
-
-/******************************
-Autoclean editor by closing tags
-******************************/
-
-function clean_bad_content($bPrint = false) {
- global $post;
- $szPostContent  = $post->post_content;
- $szRemoveFilter = array("~<p[^>]*>\s?</p>~", "~<a[^>]*>\s?</a>~", "~<font[^>]*>~", "~<\/font>~", "~style\=\"[^\"]*\"~", "~<span[^>]*>\s?</span>~");
- $szPostContent  = preg_replace($szRemoveFilter, '', $szPostContent);
- $szPostContent  = apply_filters('the_content', $szPostContent);
- if ($bPrint == false) return $szPostContent;
- else echo $szPostContent;
-   }
-
 
 /******************************
 Dynamic Copyright
@@ -201,89 +126,6 @@ function dynamic_copyright() {
 return $output;
 }
 
-/**************
-Notifications fix
-***************/
-
-function update_active_plugins($value = '') {
-    /*
-    The $value array passed in contains the list of plugins with time
-    marks when the last time the groups was checked for version match
-    The $value->reponse node contains an array of the items that are
-    out of date. This response node is use by the 'Plugins' menu
-    for example to indicate there are updates. Also on the actual
-    plugins listing to provide the yellow box below a given plugin
-    to indicate action is needed by the user.
-    */
-    if ((isset($value->response)) && (count($value->response))) {
-
-        // Get the list cut current active plugins
-        $active_plugins = get_option('active_plugins');
-        if ($active_plugins) {
-
-            //  Here we start to compare the $value->response
-            //  items checking each against the active plugins list.
-            foreach($value->response as $plugin_idx => $plugin_item) {
-
-                // If the response item is not an active plugin then remove it.
-                // This will prevent WordPress from indicating the plugin needs update actions.
-                if (!in_array($plugin_idx, $active_plugins))
-                    unset($value->response[$plugin_idx]);
-            }
-        }
-        else {
-             // If no active plugins then ignore the inactive out of date ones.
-            foreach($value->response as $plugin_idx => $plugin_item) {
-                unset($value->response);
-            }
-        }
-    }
-    return $value;
-}
-add_filter('transient_update_plugins', 'update_active_plugins');
-
-/******************************
-Remove Auto Ping
-******************************/
-
-function no_self_ping( &$links ) {
-    $home = get_option( 'home_url' );
-    foreach ( $links as $l => $link )
-        if ( 0 === strpos( $link, $home ) )
-            unset($links[$l]);
-}
-add_action( 'pre_ping', 'no_self_ping' );
-
-
-
-################################################################################
-// Comment formatting
-################################################################################
-
-function theme_comments($comment, $args, $depth) {
-	$GLOBALS['comment'] = $comment; ?>
-   	<li>
-     <article <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-       <header class="comment-author vcard">
-          <?php echo get_avatar($comment,$size='48',$default='<path_to_url>' ); ?>
-          <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
-          <time><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s','fortytwo'), get_comment_date(),  get_comment_time()) ?></a></time>
-          <?php edit_comment_link(__('(Edit)','fortytwo'),'  ','') ?>
-       </header>
-       <?php if ($comment->comment_approved == '0') : ?>
-          <em><?php _e('Your comment is awaiting moderation.','fortytwo') ?></em>
-          <br />
-       <?php endif; ?>
-
-       <?php comment_text() ?>
-
-       <nav>
-         <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-       </nav>
-     </article>
-    <!-- </li> is added by wordpress automatically -->
-    <?php
-}
 
 /************* ENQUEUE JS *************************/
 
@@ -331,3 +173,8 @@ function foundation_js_init () {
 add_action('wp_footer', 'foundation_js_init', 50);
 
 endif;
+
+require_once('includes/comments.php');
+require_once('includes/security.php');
+require_once('includes/dashboard.php');
+require_once('includes/content.php');
