@@ -129,17 +129,12 @@ return $output;
 
 /************* ENQUEUE JS *************************/
 
-function my_init() {
-  if (!is_admin()) {
-    wp_deregister_script('jquery');
-
-    // load the local copy of jQuery in the footer
-    wp_register_script('jquery', 'http://code.jquery.com/jquery-latest.min.js', false, '', false);
-
-    wp_enqueue_script('jquery');
-  }
+function fortytwo_enqueue_scripts() {
+       wp_deregister_script('jquery');
+       wp_register_script('jquery', ("http://code.jquery.com/jquery-latest.min.js"), false, '1.10.2');
+       wp_enqueue_script('jquery');
 }
-add_action('init', 'my_init');
+add_action('wp_enqueue_scripts', 'fortytwo_enqueue_scripts');
 
 
 if ( ! function_exists( 'foundation_assets' ) ) :
