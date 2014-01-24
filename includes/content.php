@@ -1,4 +1,4 @@
-<?
+<?php
 
 /******************************
 Autoclean editor by closing tags

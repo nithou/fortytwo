@@ -169,7 +169,7 @@ add_action('wp_footer', 'foundation_js_init', 50);
 
 endif;
 
-require_once('includes/comments.php');
-require_once('includes/security.php');
-require_once('includes/dashboard.php');
-require_once('includes/content.php');
+include get_template_directory() .'/includes/comments.php';
+include get_template_directory() .'/includes/security.php';
+include get_template_directory() .'/includes/dashboard.php';
+include get_template_directory() .'/includes/content.php';
