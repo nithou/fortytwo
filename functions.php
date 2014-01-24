@@ -287,8 +287,6 @@ function theme_comments($comment, $args, $depth) {
 
 /************* ENQUEUE JS *************************/
 
-
-
 function my_init() {
   if (!is_admin()) {
     wp_deregister_script('jquery');

@@ -28,6 +28,7 @@
 
   <!-- INJECT THEME STYLESHEET -->
   <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/stylesheet/sprint.css" media="print">
 
     <!--[if lt IE 9]>
     <link rel="stylesheet" href="stylesheets/ie.css">
